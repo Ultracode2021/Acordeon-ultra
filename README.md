@@ -6,3 +6,5 @@ El índice principal en HTML para referir el componente básico.
 Librerías:
 React
 Bootstrap
+
+![](Acordeon.jpg)
