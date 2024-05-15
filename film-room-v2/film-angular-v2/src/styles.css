@@ -1,1 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
+html,
+body {
+  margin: 0px;
+  height: 917px;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background: url("assets/back2.png") lightgray 50% / cover no-repeat;
+  color: aliceblue;
+  padding: 0px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

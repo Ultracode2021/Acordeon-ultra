@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { RouterOutlet } from '@angular/router'; //  imports: [RouterOutlet],
 import { CommonModule } from '@angular/common';
+import { MatIconRegistry } from "@angular/material/icon";
+import { DomSanitizer } from "@angular/platform-browser";
 
 type Movie = {
   name: string;
@@ -15,6 +17,10 @@ type Movies = Array<Movie>;
   standalone: true,
   imports: [CommonModule],
   templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css'],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA] // add this line
+
+
 })
 export class AppComponent {
   title: String = 'Film Room'; //{{ title }}
@@ -44,5 +50,14 @@ export class AppComponent {
     );
 
     this.movies[movieIndex].quantity -= 1;
+  }
+  constructor(
+    private matIconRegistry: MatIconRegistry,
+    private domSanitizer: DomSanitizer
+  ) {
+    this.matIconRegistry.addSvgIcon(
+      'thumbs-up',
+      this.domSanitizer.bypassSecurityTrustResourceUrl('assets/icons/thumbs-up.svg')
+    );
   }
 }
